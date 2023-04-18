@@ -1,17 +1,53 @@
+import React, { useState } from "react";
 import Post from "./Post";
 
 function Posts(props) {
-  const posts = [
-    { id: 111, title: "Happiness", author: "John" },
-    { id: 112, title: "MIU", author: "Dean" },
-    { id: 113, title: "Enjoy Life", author: "Jasmine" },
-  ];
+  const [selected, setSelected] = useState(null);
 
-  const postList = posts.map((p) => {
-    return <Post id={p.id} key={p.id} title={p.title} author={p.author} />;
-  });
+  const handleClick = (id) => {
+    const selected = props.data.find((item) => item.id === id);
+    setSelected(selected);
+  };
 
-  return postList;
+  console.log(props.data);
+  return (
+    <>
+      <div className="posts-container">
+        {props.data.map((item) => (
+          <Post
+            key={item.id}
+            post={item}
+            onClick={() => handleClick(item.id)}
+          />
+        ))}
+      </div>
+
+      <div className="content-clicked">
+        {selected && (
+          <div>
+            <h3 className="underline">{selected.title}</h3>
+            <p>{selected.author}</p>
+          </div>
+        )}
+        <p>This is the content in the post....</p>
+
+        <div className="center-text">
+          <p>
+            <a className="link-color-change" href="https://google.com">
+              edit
+            </a>
+          </p>
+
+          <th className="spaced-text" />
+          <p>
+            <a className="link-color-change" href="https://google.com">
+              delete
+            </a>
+          </p>
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default Posts;

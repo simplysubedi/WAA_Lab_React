@@ -1,11 +1,11 @@
 import "./App.css";
-import Posts from "./components/Posts";
+import Dashboard from "./dashboard/Dashboard";
 
 function App() {
   return (
     <div className="App">
       <h1>Lab 7 Solution</h1>
-      <Posts />
+      <Dashboard />
     </div>
   );
 }

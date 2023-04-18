@@ -11,3 +11,71 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+}
+
+.Content {
+  min-width: 250px;
+  padding: 16px;
+
+  text-align: center;
+  border: 3px solid #3017eabc;
+  color:white;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px #ccc;
+  background-color: rgb(101, 97, 171);
+  margin: 10px;
+  box-sizing: border-box;
+}
+
+.content-clicked {
+  min-width: 250px;
+  min-height: 250px;
+  padding: 16px;
+
+  text-align: center;
+  border: 3px solid #3017eabc;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px #ccc;
+  margin: 8px;
+  box-sizing: border-box;
+}
+.underline {
+  text-decoration: underline;
+}
+
+
+.Field{
+  margin: 16px;
+  color: #ccc;
+}
+
+.Button{
+  margin: 15px;
+}
+
+.posts-container{
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.center-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.link-color-change{
+  color: red;
+}
+
+.spaced-text {
+  margin: 30px;
+}
