@@ -1,44 +1,43 @@
-import React, { useRef, useState } from "react";
-import Posts from "../components/Posts";
+import React, { Component, createContext, useEffect, useState } from "react";
+import Posts from "../components/Posts/Posts";
+import PostUpdate from "../components/PostUpdate/PostUpdate";
 
-const data = [
-  { id: 111, title: "Happiness", author: "John" },
-  { id: 112, title: "MIU", author: "Dean" },
-  { id: 113, title: "Enjoy Life", author: "Jasmine" },
+// const PostContext = createContext();
+
+let data = [
+  {
+    id: 111,
+    title: "Happiness",
+    author: "John",
+  },
+  {
+    id: 112,
+    title: "MIU",
+    author: "Dean",
+  },
+  {
+    id: 113,
+    title: "Enjoy Life",
+    author: "Jasmine",
+  },
 ];
 
-function Dashboard() {
-  const [posts, setPosts] = useState([...data]);
-  const inputRef = useRef();
+const Dashboard = () => {
+  const [postData, setPostData] = useState([...data]);
 
-  const handleClick = () => {
-    changeFirstPostTitle(inputRef.current.value);
+  const updatePostTitle = (title) => {
+    const newFirstPostData = { ...postData[0] };
+    newFirstPostData.title = title;
+    const newPostData = [newFirstPostData, ...postData.slice(1)];
+    setPostData(newPostData);
   };
 
-  function clearForm() {
-    inputRef.current.value = "";
-  }
-
-  function changeFirstPostTitle(newTitle) {
-    const newFirstPost = { ...posts[0] };
-    newFirstPost.title = newTitle;
-    const newPosts = [newFirstPost, ...posts.slice(1)];
-    setPosts(newPosts);
-    clearForm();
-  }
-
   return (
-    <div>
-      <Posts data={posts} />
-      <div className="Field">
-        <input ref={inputRef} type="text" />
-      </div>
-
-      <div className="Button">
-        <button onClick={handleClick}> Change Name</button>
-      </div>
-    </div>
+    <>
+      <Posts postData={postData} />
+      <PostUpdate updatePostTitle={updatePostTitle} />
+    </>
   );
-}
+};
 
 export default Dashboard;

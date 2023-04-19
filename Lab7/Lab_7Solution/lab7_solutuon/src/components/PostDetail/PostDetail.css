@@ -1,0 +1,9 @@
+.postDetail-container{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(63, 63, 207);
+    width: 300px;
+    height: 300;
+    border: 2px solid rgb(55, 40, 40);
+    align-content: center;
+}
