@@ -1,0 +1,14 @@
+.post-container{
+    display: flex;
+   color: rgb(237, 239, 241);
+    flex-direction: column;
+    background-color: rgb(61, 18, 202);
+    width: 300px;
+    height: 300;
+    border: 2px solid rgb(55, 40, 40);
+    align-content: center;
+    display: flex;
+  justify-content: center;
+  align-items: center
+   
+}
